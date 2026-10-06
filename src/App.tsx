@@ -3,6 +3,7 @@ import { situations } from './data';
 import { useSpeech } from './hooks/useSpeech';
 import { useRecorder } from './hooks/useRecorder';
 import './styles.css';
+import { AiMentor } from './components/AiMentor';
 function Icon({ kind }: { kind: 'play' | 'stop' | 'mic' }) {
   return <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{kind === 'play' ? <path d="m8 4 12 8-12 8Z" fill="currentColor" stroke="none"/> : kind === 'stop' ? <rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor" stroke="none"/> : <><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-4 0h8"/></>}</svg>;
 }
@@ -42,6 +43,7 @@ export default function App() {
         <section className="recording-playback" aria-labelledby="compare-title"><div><h2 id="compare-title"><span className="step">STEP 3</span>내 녹음 듣기</h2><p>직접 듣고 예문의 발음과 리듬을 비교해 보세요.</p></div>{recording.state.url && !busy ? <audio key={recording.state.url} ref={audio} src={recording.state.url} controls aria-label="내 녹음 재생" onPlay={() => { if (recording.isBusy()) { pauseAudio(); return; } speech.stop(); setAudioMessage('내 녹음 재생 중'); }} onPause={() => setAudioMessage('내 녹음 일시 정지')} onEnded={() => setAudioMessage('내 녹음 재생 완료')} onError={() => setAudioMessage('녹음을 재생하지 못했습니다. 다시 녹음해 주세요.')}/> : <span className="empty-recording">{busy ? '녹음을 마치면 여기서 들을 수 있어요.' : '아직 녹음된 목소리가 없어요.'}</span>}<span className="audio-status" role="status" aria-live="polite">{audioMessage}</span></section>
         {busy && <p className="navigation-notice" role="status">{recording.state.phase === 'requesting' ? '마이크 권한 요청이 끝난 후' : '녹음을 마친 후'} 상황과 문장을 이동할 수 있습니다.</p>}
         <div className="sentence-navigation"><button className="secondary" disabled={busy || sentenceIndex === 0} onClick={() => change(situationIndex, sentenceIndex - 1)}>이전 문장</button><div className="position-indicators" aria-hidden="true">{situation.sentences.map((s, index) => <span key={s.id} className={index === sentenceIndex ? 'current' : ''}/>)}</div><button className="secondary" disabled={busy || sentenceIndex === situation.sentences.length - 1} onClick={() => change(situationIndex, sentenceIndex + 1)}>다음 문장</button></div>
+        <AiMentor context={{ situation: situation.name, sentence }}/>
         <footer>녹음은 전송·저장되지 않으며, 문장 이동이나 새로고침 시 삭제됩니다.</footer>
       </main>
     </div>

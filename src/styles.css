@@ -188,3 +188,51 @@ h1 { font-weight: 850; }
   .sentence-count { padding: 5px 10px; }
   .reading { padding: 10px 12px; }
 }
+
+/* Optional mentor shares the workbook styling without interrupting shadowing. */
+.ai-mentor { margin-top: 28px; padding: 24px; border: 1px solid #e9dfd8; border-radius: 14px; background: white; }
+.mentor-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.mentor-heading h2 { border-left: 4px solid var(--workbook-pink); padding-left: 12px; margin: 0; font-size: 20px; font-weight: 800; line-height: 1.4; }
+.mentor-heading p { margin: 12px 0 0; font-size: 16px; color: #746a64; }
+.mentor-model { color: #bd3154; border-radius: 20px; padding: 5px 10px; background: #fff0f3; font-size: 12px; overflow-wrap: anywhere; max-width: 100%; }
+.mentor-key-panel { margin-top: 20px; padding: 18px; background: var(--workbook-cream); border-radius: 10px; }
+.mentor-key-panel label, .mentor-form label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.mentor-key-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.mentor-key-row input { flex: 1 1 200px; min-width: 0; width: 100%; min-height: 48px; padding: 10px 12px; border: 1px solid #e5d9cf; border-radius: 8px; background: white; font-size: 16px; }
+.mentor-key-panel p, .mentor-key-panel a { font-size: 14px; line-height: 1.8; }
+.mentor-key-panel p { margin: 12px 0 6px; color: #746a64; }
+.mentor-key-panel a { color: #a52645; text-underline-offset: 3px; }
+.mentor-context { display: flex; align-items: baseline; gap: 12px; margin-top: 18px; padding: 12px 0; border-bottom: 1px dashed #e5d9cf; }
+.mentor-context span { flex-shrink: 0; font-size: 14px; color: #746a64; }
+.mentor-context p { margin: 0; font-size: 16px; overflow-wrap: anywhere; }
+.mentor-prompts { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.mentor-prompts button { background: #fff7f9; color: #a52645; border-color: #f5cbd5; }
+.mentor-conversation { max-height: 480px; overflow-y: auto; overflow-wrap: anywhere; scrollbar-gutter: stable; }
+.mentor-empty { padding: 20px; border: 1px dashed #e5d9cf; border-radius: 10px; color: #746a64; font-size: 16px; margin: 0; }
+.mentor-message { padding: 16px 18px; border-radius: 10px; margin: 0 0 12px; border: 1px solid #e9dfd8; }
+.mentor-message.user { background: #fff0f3; border-color: #f5cbd5; margin-left: 24px; }
+.mentor-message.model { background: #faf5ee; margin-right: 24px; }
+.mentor-message h3 { color: #a52645; font-size: 14px; margin: 0 0 8px; }
+.mentor-message p { margin: 0; font-size: 16px; line-height: 1.9; white-space: pre-wrap; overflow-wrap: anywhere; }
+.mentor-form { margin-top: 20px; }
+.mentor-form textarea { width: 100%; resize: vertical; min-height: 112px; padding: 14px; font: inherit; font-size: 16px; border: 1px dashed #d9c9be; border-radius: 10px; background: #fdfbf9; color: #302c2a; }
+.mentor-form textarea:focus-visible { outline: 3px solid #bd3154; outline-offset: 4px; }
+.mentor-actions { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-top: 12px; }
+.mentor-actions > span { color: #746a64; font-size: 12px; }
+.mentor-actions > div { display: flex; gap: 8px; flex-wrap: wrap; }
+.mentor-note { font-size: 14px; color: #746a64; margin: 8px 0 0; }
+@media (max-width: 800px) {
+  .ai-mentor { padding: 22px 20px; }
+  .mentor-key-panel { padding: 16px; }
+  .mentor-context { flex-wrap: wrap; gap: 4px; }
+  .mentor-message.user { margin-left: 12px; }
+  .mentor-message.model { margin-right: 12px; }
+  .mentor-actions > div { width: 100%; }
+  .mentor-actions > div button { flex: 1; }
+}
+@media (max-width: 380px) {
+  .ai-mentor { padding: 20px 16px; }
+  .mentor-key-panel { padding: 12px; }
+  .mentor-key-row .secondary { flex: 1; padding-inline: 10px; }
+  .mentor-actions > div button { padding-inline: 12px; }
+}
