@@ -71,3 +71,12 @@ GitHub 저장소의 `main` 브랜치를 연결하고 Framework Preset **Vite**, 
 - 멘토 테스트는 인증 헤더·모델·문맥, API 오류, 답변 표시·후속 대화, 요청 취소·시간 초과·오래된 응답, 키 삭제·메모리 보관, HTML 안전 표시를 확인합니다.
 - 실제 Gemini API 호출은 사용자 키가 없어 검증하지 않았습니다.
 - 실제 일본어 음성 출력, 실제 마이크 권한 UI·녹음 소리·코덱, Safari·Firefox는 검증하지 않았습니다.
+
+
+## 디자인과 글꼴
+
+참고 화면의 다크 배경·둥근 카드·핑크색 버튼·민트색 문장 선택을 적용했습니다. 한국어는 a2z와 비슷한 느낌의 Pretendard Variable, 일본어는 Noto Sans JP Variable을 사용합니다. 글꼴은 `public/fonts/`에 포함되어 외부 폰트 서비스 없이 제공됩니다. Noto Sans JP는 유니코드 범위별 파일로 구성되어 필요한 글자에 해당하는 파일만 브라우저가 로드합니다.
+
+- Pretendard 1.3.9: [공식 저장소](https://github.com/orioncactus/pretendard), SIL OFL 1.1
+- Noto Sans JP: Fontsource Variable 5.3.0 패키지, SIL OFL 1.1
+- 두 글꼴의 라이선스는 `public/fonts/`의 LICENSE 파일에 포함했습니다.
